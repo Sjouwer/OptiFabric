@@ -226,7 +226,7 @@ public class OptifineSetup {
 			return (Path) FabricLoader.getInstance().getObjectShare().get("fabric-loader:inputGameJar");
 		} catch (NoClassDefFoundError | NoSuchMethodError old) {
 			ModContainer mod = FabricLoader.getInstance().getModContainer("minecraft").orElseThrow(() -> new IllegalStateException("No Minecraft?"));
-			URI uri = mod.getRootPaths().getFirst().toUri();
+			URI uri = mod.getRootPaths().get(0).toUri();
 			assert "jar".equals(uri.getScheme());
 
 			String path = uri.getSchemeSpecificPart();
